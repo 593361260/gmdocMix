@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '游戏档案',
+      title: 'gmdoc',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -40,22 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void setState(fn) {
-    if (_currentIndex != 0) {
-      homeResource = "icon/btn_home.png";
-    } else
-      homeResource = "icon/btn_home_selected.png";
-    if (_currentIndex != 1) {
-      gameResource = "icon/btn_game.png";
-    } else
-      gameResource = "icon/btn_game_selected.png";
-    if (_currentIndex != 2) {
-      groupResource = "icon/btn_group.png";
-    } else
-      groupResource = "icon/btn_group_selected.png";
-    if (_currentIndex != 3) {
-      msgResource = "icon/btn_ring.png";
-    } else
-      msgResource = "icon/btn_ring_selected.png";
     super.setState(fn);
   }
 
@@ -163,8 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           onPageChanged: (index) {
             _currentIndex = index;
-            setState(() {
-            });
+            setState(() {});
           },
 //          physics: NeverScrollableScrollPhysics(),
         ),
@@ -176,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return  EditDynamic();
+              return EditDynamic();
             }));
           },
           child: Image.asset("icon/btn_create_post.png"),
@@ -216,6 +199,8 @@ class _MyHomePageState extends State<MyHomePage> {
               if (_currentIndex != 0) {
                 _currentIndex = 0;
                 _pageControl.jumpToPage(_currentIndex);
+                _changeState();
+                print("点击主页");
                 setState(() {});
               }
             },
@@ -243,6 +228,8 @@ class _MyHomePageState extends State<MyHomePage> {
               if (_currentIndex != 1) {
                 _currentIndex = 1;
                 _pageControl.jumpToPage(_currentIndex);
+                _changeState();
+                print("点击游戏库");
                 setState(() {});
               }
             },
@@ -270,6 +257,8 @@ class _MyHomePageState extends State<MyHomePage> {
               if (_currentIndex != 2) {
                 _currentIndex = 2;
                 _pageControl.jumpToPage(_currentIndex);
+                _changeState();
+                print("点击关注圈");
                 setState(() {});
               }
             },
@@ -296,6 +285,8 @@ class _MyHomePageState extends State<MyHomePage> {
               if (_currentIndex != 3) {
                 _currentIndex = 3;
                 _pageControl.jumpToPage(_currentIndex);
+                _changeState();
+                print("点击消息");
                 setState(() {});
               }
             },
@@ -303,5 +294,25 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  //修改点击的状态
+  void _changeState() {
+    if (_currentIndex != 0) {
+      homeResource = "icon/btn_home.png";
+    } else
+      homeResource = "icon/btn_home_selected.png";
+    if (_currentIndex != 1) {
+      gameResource = "icon/btn_game.png";
+    } else
+      gameResource = "icon/btn_game_selected.png";
+    if (_currentIndex != 2) {
+      groupResource = "icon/btn_group.png";
+    } else
+      groupResource = "icon/btn_group_selected.png";
+    if (_currentIndex != 3) {
+      msgResource = "icon/btn_ring.png";
+    } else
+      msgResource = "icon/btn_ring_selected.png";
   }
 }

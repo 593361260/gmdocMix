@@ -18,7 +18,7 @@ class _GameListPage extends State<GameTableDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("hello"),
+      body: Text("game List"),
     );
   }
 }

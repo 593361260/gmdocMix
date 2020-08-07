@@ -18,7 +18,7 @@ class _MsgState extends State<MsgFullWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("hello"),
+      body: Text("msg"),
     );
   }
 }

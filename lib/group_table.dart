@@ -18,7 +18,7 @@ class _GroupPageState extends State<GroupStateWidget>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("hello"),
+      body: Text("follow"),
     );
   }
 
