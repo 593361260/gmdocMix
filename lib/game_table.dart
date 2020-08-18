@@ -14,11 +14,22 @@ class GameTableDetails extends StatefulWidget {
   }
 }
 
-class _GameListPage extends State<GameTableDetails> {
+class _GameListPage extends State<GameTableDetails>
+    with AutomaticKeepAliveClientMixin<GameTableDetails> {
   @override
+  // ignore: must_call_super
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: Text("game List"),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 }

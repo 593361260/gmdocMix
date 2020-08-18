@@ -31,17 +31,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _pageControl = PageController(keepPage: false);
+  var _pageControl = PageController();
   var _currentIndex = 0;
   var homeResource = "icon/btn_home_selected.png";
   var gameResource = "icon/btn_game.png";
   var groupResource = "icon/btn_group.png";
   var msgResource = "icon/btn_ring.png";
-
-  @override
-  void setState(fn) {
-    super.setState(fn);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: PageView(
         controller: _pageControl,
         children: <Widget>[
-          HomeLessWidget(),
+          HomeStateWidget(),
           GameTablePage(),
           GroupWidget(),
           MsgLessWidget()
@@ -140,14 +135,14 @@ class _MyHomePageState extends State<MyHomePage> {
         body: PageView(
           controller: _pageControl,
           children: <Widget>[
-            HomeLessWidget(),
+            HomeStateWidget(),
             GameTablePage(),
             GroupWidget(),
             MsgLessWidget()
           ],
           onPageChanged: (index) {
             _currentIndex = index;
-            setState(() {});
+            _changeState();
           },
 //          physics: NeverScrollableScrollPhysics(),
         ),

@@ -14,11 +14,21 @@ class MsgFullWidget extends StatefulWidget {
   }
 }
 
-class _MsgState extends State<MsgFullWidget> {
+class _MsgState extends State<MsgFullWidget>
+    with AutomaticKeepAliveClientMixin<MsgFullWidget> {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: Text("msg"),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 }
